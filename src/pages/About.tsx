@@ -186,11 +186,11 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-24 sm:pt-32 pb-12 sm:pb-20 overflow-hidden">
+      <section className="relative pt-20 sm:pt-28 md:pt-32 lg:pt-36 pb-10 sm:pb-14 md:pb-16 lg:pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-royal/20 via-background to-crimson/20"></div>
         <div className="absolute inset-0 opacity-30">
           <Squares
@@ -201,13 +201,13 @@ const About = () => {
             hoverFillColor="rgba(212, 175, 55, 0.2)"
           />
         </div>
-        <div className="container-wide relative z-10 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-6 sm:mb-8"
+            className="mb-6 sm:mb-8 md:mb-10"
           >
             <Button
               variant="ghost"
@@ -223,9 +223,9 @@ const About = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12 sm:mb-16"
+            className="text-center mb-8 sm:mb-12 md:mb-16"
           >
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-heading font-bold mb-4 sm:mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold mb-4 sm:mb-5 md:mb-6 px-2">
               <TextType 
                 text={aboutData.heroTitle}
                 className="text-sky-gradient"
@@ -234,7 +234,7 @@ const About = () => {
                 showCursor={false}
               />
             </h1>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2 sm:px-0 mb-4">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-6">
               {aboutData.heroSubtitle}
             </p>
           </motion.div>
@@ -242,36 +242,36 @@ const About = () => {
       </section>
 
       {/* History & Mission */}
-      <section className="section-padding bg-gradient-to-b from-background to-muted/20">
-        <div className="container-wide">
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-background to-muted/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-start mb-12 sm:mb-16 md:mb-20">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-8"
+              className="space-y-6 sm:space-y-8"
             >
-              <div className="space-y-6">
-                <h2 className="text-4xl font-heading font-semibold">{aboutData.historyTitle}</h2>
-                <div className="text-lg text-muted-foreground leading-relaxed">
+              <div className="space-y-4 sm:space-y-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-semibold">{aboutData.historyTitle}</h2>
+                <div className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                   {aboutData.historyContent.split('\n\n').map((paragraph, index) => (
-                    <p key={index} className="mb-4 last:mb-0">
+                    <p key={index} className="mb-3 sm:mb-4 last:mb-0">
                       <ShinyText text={paragraph} speed={3} />
                     </p>
                   ))}
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <h3 className="text-2xl font-heading font-semibold text-gradient-royal">{aboutData.missionTitle}</h3>
-                <div className="text-lg text-muted-foreground italic bg-card/50 p-6 rounded-lg border border-border">
+              <div className="space-y-3 sm:space-y-4">
+                <h3 className="text-xl sm:text-2xl font-heading font-semibold text-gradient-royal">{aboutData.missionTitle}</h3>
+                <div className="text-base sm:text-lg text-muted-foreground italic bg-card/50 p-5 sm:p-6 rounded-lg border border-border">
                   "<ShinyText text={aboutData.missionContent} speed={4} />"
                 </div>
               </div>
             </motion.div>
 
             {/* Values Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
               {values.map((value, index) => (
                 <motion.div
                   key={value.title}
@@ -288,18 +288,18 @@ const About = () => {
                     type: "spring",
                     stiffness: 300
                   }}
-                  className="card-3d p-6 group cursor-pointer"
+                  className="card-3d p-5 sm:p-6 group cursor-pointer"
                 >
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
                     <motion.div
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
-                      className="w-12 h-12 rounded-lg bg-gradient-to-br from-gold/20 to-gold/40 flex items-center justify-center"
+                      className="w-11 h-11 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-gold/20 to-gold/40 flex items-center justify-center"
                     >
-                      <value.icon className="h-6 w-6 text-gold" />
+                      <value.icon className="h-5 w-5 sm:h-6 sm:w-6 text-gold" />
                     </motion.div>
-                    <h4 className="text-xl font-heading font-semibold">{value.title}</h4>
-                    <p className="text-muted-foreground leading-relaxed">{value.description}</p>
+                    <h4 className="text-lg sm:text-xl font-heading font-semibold">{value.title}</h4>
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{value.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -309,19 +309,19 @@ const About = () => {
       </section>
 
       {/* Achievements */}
-      <section className="section-padding bg-gradient-to-r from-royal/5 via-background to-crimson/5">
-        <div className="container-wide">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-r from-royal/5 via-background to-crimson/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-12 md:mb-16"
           >
-            <h2 className="text-4xl font-heading font-bold mb-6">Our Achievements</h2>
-            <p className="text-xl text-muted-foreground">Numbers that reflect our commitment to excellence</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-3 sm:mb-4 md:mb-6">Our Achievements</h2>
+            <p className="text-lg sm:text-xl text-muted-foreground px-4">Numbers that reflect our commitment to excellence</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
             {achievements.map((achievement, index) => (
               <motion.div
                 key={achievement.label}
@@ -338,26 +338,26 @@ const About = () => {
                   type: "spring",
                   stiffness: 300
                 }}
-                className="card-3d p-6 text-center group cursor-pointer"
+                className="card-3d p-5 sm:p-6 text-center group cursor-pointer"
               >
-                <div className="flex flex-col items-center space-y-3">
+                <div className="flex flex-col items-center space-y-2 sm:space-y-3">
                   <motion.div
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
-                    className="w-12 h-12 rounded-full bg-gradient-to-br from-gold/20 to-gold/40 flex items-center justify-center"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-gold/20 to-gold/40 flex items-center justify-center"
                   >
-                    <achievement.icon className="h-6 w-6 text-gold" />
+                    <achievement.icon className="h-5 w-5 sm:h-6 sm:w-6 text-gold" />
                   </motion.div>
                   <div className="space-y-1">
                     <motion.div
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 300 }}
-                      className="text-2xl sm:text-3xl font-heading font-bold text-gradient-gold"
+                      className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-gradient-gold"
                     >
                       {achievement.value}
                     </motion.div>
-                    <p className="text-muted-foreground text-sm sm:text-base">{achievement.label}</p>
+                    <p className="text-muted-foreground text-xs sm:text-sm md:text-base">{achievement.label}</p>
                   </div>
                 </div>
               </motion.div>
@@ -367,17 +367,17 @@ const About = () => {
       </section>
 
       {/* Vision Statement */}
-      <section className="section-padding">
-        <div className="container-wide">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.6 }}
-            className="text-center bg-gradient-to-r from-royal/10 via-crimson/5 to-royal/10 p-12 rounded-2xl border border-border cursor-pointer"
+            className="text-center bg-gradient-to-r from-royal/10 via-crimson/5 to-royal/10 p-8 sm:p-10 md:p-12 rounded-2xl border border-border cursor-pointer"
           >
-            <h3 className="text-3xl font-heading font-semibold mb-6">{aboutData.visionTitle}</h3>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <h3 className="text-2xl sm:text-3xl font-heading font-semibold mb-4 sm:mb-5 md:mb-6">{aboutData.visionTitle}</h3>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed px-2">
               <ShinyText text={aboutData.visionContent} speed={4} />
             </p>
           </motion.div>
@@ -385,30 +385,30 @@ const About = () => {
       </section>
 
       {/* Achievements List */}
-      <section className="section-padding bg-gradient-to-b from-muted/20 to-background">
-        <div className="container-wide">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-muted/20 to-background">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-12 md:mb-16"
           >
-            <h2 className="text-4xl font-heading font-bold mb-6">Our Accomplishments</h2>
-            <p className="text-xl text-muted-foreground">Recognitions that define our excellence</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-3 sm:mb-4 md:mb-6">Our Accomplishments</h2>
+            <p className="text-lg sm:text-xl text-muted-foreground px-4">Recognitions that define our excellence</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
             {aboutData.achievements.map((achievement, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-card/50 border border-border rounded-lg p-6 hover:shadow-lg transition-all duration-300"
+                className="bg-card/50 border border-border rounded-lg p-5 sm:p-6 hover:shadow-lg transition-all duration-300"
               >
-                <div className="flex items-start space-x-4">
-                  <div className="w-2 h-2 bg-gold rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-muted-foreground leading-relaxed">{achievement}</p>
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-2 h-2 bg-gold rounded-full mt-2.5 sm:mt-3 flex-shrink-0"></div>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{achievement}</p>
                 </div>
               </motion.div>
             ))}
@@ -417,33 +417,33 @@ const About = () => {
       </section>
 
       {/* Leadership Section */}
-      <section className="section-padding">
-        <div className="container-wide">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-10 sm:mb-12"
           >
-            <h2 className="text-4xl font-heading font-bold mb-6">{aboutData.leadershipTitle}</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-4 sm:mb-5 md:mb-6">{aboutData.leadershipTitle}</h2>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
               {aboutData.leadershipDescription}
             </p>
           </motion.div>
 
           {/* Staff Members Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8">
             {aboutData.staffMembers.map((staff, index) => (
               <motion.div
                 key={staff.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-card/50 border border-border rounded-xl p-4 sm:p-6 hover:shadow-lg transition-all duration-300"
+                className="bg-card/50 border border-border rounded-xl p-5 sm:p-6 hover:shadow-lg transition-all duration-300"
               >
                 {/* Staff Photo */}
                 {staff.photos[0] && (
-                  <div className="relative mb-4">
+                  <div className="relative mb-4 sm:mb-5">
                     <img
                       src={staff.photos[0]}
                       alt={staff.name}
@@ -453,30 +453,30 @@ const About = () => {
                 )}
 
                 {/* Staff Info */}
-                <div className="text-center mb-4">
+                <div className="text-center mb-4 sm:mb-5">
                   <h3 className="text-lg sm:text-xl font-heading font-bold text-foreground mb-1">{staff.name}</h3>
                   <p className="text-gold font-medium text-sm sm:text-base mb-2">{staff.position}</p>
-                  <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{staff.description}</p>
+                  <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed px-2">{staff.description}</p>
                 </div>
 
                 {/* Additional Info */}
                 <div className="space-y-2 text-xs sm:text-sm">
                   {staff.qualifications && (
-                    <div>
+                    <div className="px-2">
                       <span className="font-medium text-foreground">Qualifications: </span>
                       <span className="text-muted-foreground">{staff.qualifications}</span>
                     </div>
                   )}
                   {staff.experience && (
-                    <div>
+                    <div className="px-2">
                       <span className="font-medium text-foreground">Experience: </span>
                       <span className="text-muted-foreground">{staff.experience}</span>
                     </div>
                   )}
                   {staff.email && (
-                    <div>
+                    <div className="px-2">
                       <span className="font-medium text-foreground">Email: </span>
-                      <a href={`mailto:${staff.email}`} className="text-gold hover:text-gold/80 transition-colors">
+                      <a href={`mailto:${staff.email}`} className="text-gold hover:text-gold/80 transition-colors break-all">
                         {staff.email}
                       </a>
                     </div>
@@ -491,7 +491,7 @@ const About = () => {
                         key={photoIndex}
                         src={photo}
                         alt={`${staff.name} ${photoIndex + 2}`}
-                        className="w-full h-12 sm:h-16 object-cover rounded-full border-2 border-gold/30"
+                        className="w-full h-14 sm:h-16 object-cover rounded-lg border-2 border-gold/30"
                       />
                     ))}
                   </div>
@@ -509,10 +509,10 @@ const About = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-gold hover:bg-gold/90 text-black shadow-lg hover:shadow-xl transition-all duration-300"
+          className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 p-3 sm:p-3.5 rounded-full bg-gold hover:bg-gold/90 text-black shadow-lg hover:shadow-xl transition-all duration-300"
           aria-label="Scroll to top"
         >
-          <ArrowUp className="h-6 w-6" />
+          <ArrowUp className="h-5 w-5 sm:h-6 sm:w-6" />
         </motion.button>
       )}
 
